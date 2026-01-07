@@ -31,7 +31,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo build
+        run: ls -l && hugo build && ls -l ./public/ 
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
