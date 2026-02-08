@@ -1591,7 +1591,7 @@ footer a:hover {
 
 .prose {
   color: var(--tw-prose-body);
-  max-width: 65ch;
+  max-width: 81ch;
 }
 
 .prose :where(p):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -2314,7 +2314,7 @@ footer a:hover {
 }
 
 .max-w-prose {
-  max-width: 65ch;
+  max-width: 81ch;
 }
 
 .max-w-xs {
