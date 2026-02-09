@@ -27,3 +27,7 @@ jq '.resources[] | select(.name == "bastionHost") | .instances[0].attributes.ipv
 ```bash
 timeout 5 bash -c 'cat < /dev/null > /dev/tcp/10.22.32.20/5701'; echo $?
 ```
+
+## Tools which good to try
+
+gitbutler - https://matduggan.com/gitbutler-cli-is-really-good/
