@@ -32,5 +32,8 @@
         });
       </script>
     {{ end }}
+    {{ if hugo.IsProduction }}
+      {{ partial "analytics/cloudflare.html" . }}
+    {{ end }}
   </body>
 </html>
