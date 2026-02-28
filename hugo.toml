@@ -1,8 +1,12 @@
 baseURL = 'https://raim.dev/'
 languageCode = 'en-us'
 title = 'TIL of Raimbek'
+enableRobotsTXT = true
 
 theme = "til"
+
+[permalinks]
+  posts = '/posts/:title/'
 
 [caches]
   [caches.images]
