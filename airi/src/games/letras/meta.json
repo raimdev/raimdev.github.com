@@ -1,0 +1,9 @@
+{
+  "id": "letras",
+  "name": "Airi · Letras",
+  "short_name": "Letras",
+  "description": "Leer y escribir en cursiva: libro lecto-1, páginas 16–25.",
+  "theme_color": "#5865F2",
+  "background_color": "#FFF8EF",
+  "order": 1
+}

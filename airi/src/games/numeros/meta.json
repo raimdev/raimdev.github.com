@@ -1,0 +1,9 @@
+{
+  "id": "numeros",
+  "name": "Airi · Números",
+  "short_name": "Números",
+  "description": "Números hasta 10: contar, comparar, ordenar y sumar.",
+  "theme_color": "#0E9F6E",
+  "background_color": "#FFF8EF",
+  "order": 2
+}

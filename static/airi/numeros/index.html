@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Airi · Números</title>
+  <meta name="description" content="Números hasta 10: contar, comparar, ordenar y sumar.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FFF8EF">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Números">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="fonts/andika-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playwrite-es.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script src="js/build-info.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/strokes.js"></script>
+  <script src="js/activities.js"></script>
+  <script src="js/parent.js"></script>
+  <script src="game.js"></script>
+  <script>
+    var fontsReady = document.fonts && document.fonts.load
+      ? Promise.all(['40px Ligada', '40px Andika', 'bold 40px Andika'].map(function (f) { return document.fonts.load(f).catch(function () {}); }))
+      : Promise.resolve();
+    Promise.race([fontsReady, new Promise(function (r) { setTimeout(r, 2000); })]).then(function () { AG.start(); });
+  </script>
+</body>
+</html>
