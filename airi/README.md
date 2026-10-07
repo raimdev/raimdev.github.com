@@ -12,6 +12,20 @@ Offline iPad learning games built from Airi's school books, published as part of
 Each game is a separate PWA, with its own manifest, service worker, icon, offline cache and progress. On the iPad, open a game
 from the catalog in Safari and choose Share → **Add to Home Screen**. Open the new icon once while online, and it works offline from then on.
 
+## Play style (buddy, presents, room)
+The look follows the ideas of open-ended play apps for kids (no failing, everything reacts to a touch, playful flat art); all art is original.
+- **Toy buttons**: bright pastel tiles, chunky buttons that squish when pressed, little stars around a right answer.
+- **The buddy**: a round yellow friend at the bottom of every task. Right answer → it cheers; wrong answer → it tilts its head and thinks. It is never sad.
+- **Presents**: finishing an activity for the first time, or with more stars than before, gives a present to tap open (a cat, a lamp, a ball…).
+- **The room** (`#/room`, button *Mi cuarto*): free play with no rules. Drag presents in from the shelf, move them, tap them (they move, light up,
+  and show their word: *el gato*, or *a cat* in English; the dice shows a number word), paint the wall and the floor. Saved per game on the iPad.
+- **Calm**: the parent setting *Анимация → Өшірулі* (or the iPad's *Reduce Motion*) stops the decorative movement.
+
+## Preview of a branch: raim.dev/airi-tocaboca/
+`node airi/tools/build.mjs --base airi-tocaboca` writes a second copy to `static/airi-tocaboca/`. It uses its own cache names
+(`airi-tocaboca-<game>-…`) and its own saved progress (`airi-tocaboca-<game>`), so it can be installed next to the apps at `/airi/`
+without touching them. To make a branch's version the main one, run `node airi/tools/build.mjs` (writes `static/airi`) and delete `static/airi-tocaboca`.
+
 ## How it fits into the site (Hugo, GitHub Pages)
 - `airi/` holds the source: shared framework, games, build script. Hugo ignores it.
 - `static/airi/` holds the **generated** apps. Hugo copies `static/` to the site root unchanged, so they are served at
@@ -29,12 +43,14 @@ After a deploy, the iPad gets the new version the next time the app is opened on
 
 ## Structure
 ```
-airi/src/shared/js/core.js        screens, router, task flow (↺ / →), progress, item renderer
+airi/src/shared/js/core.js        screens, router, task flow (↺ / →), progress, item renderer, sparkles, presents on the finish screen
+airi/src/shared/js/art.js         original SVG art: the buddy (moods), the present box, the room things (+ their es / en words)
 airi/src/shared/js/activities.js  activity types: show, choose, multi, build, match, trace
+airi/src/shared/js/room.js        presents (which thing to give) and the room screen (drag, tap, paint, shelf)
 airi/src/shared/js/strokes.js     handwriting model: joined cursive lowercase, capitals, digits + drawing helpers
 airi/src/shared/js/parent.js      parent area (Kazakh): guide, settings, progress, install status
 airi/src/shared/css/app.css       styles (iPad landscape and portrait)
-airi/src/shared/fonts/            Andika (print), Playwrite ES (Spanish school cursive)
+airi/src/shared/fonts/            Andika (print), Playwrite ES (Spanish school cursive), Fredoka (playful UI titles and buttons)
 airi/src/games/<id>/meta.json     app name, description, colours, order in the catalog
 airi/src/games/<id>/game.js       the book: lessons and activity generators
 airi/src/games/<id>/icons/, img/  app icons, ARASAAC pictograms (webp)
@@ -86,5 +102,6 @@ The model covers `a e i o u p m l s t d n f`, the matching capitals and `0–9`.
 
 ## Credits and licences
 - Pictograms: Sergio Palao. Origin: ARASAAC (<https://arasaac.org>). Licence: CC BY-NC-SA. Owner: Gobierno de Aragón (Spain). Non-commercial use only.
-- Fonts: Andika (SIL International) and Playwrite ES (TypeTogether), both under the SIL Open Font License.
+- Fonts: Andika (SIL International), Playwrite ES (TypeTogether) and Fredoka (The Fredoka Project Authors), all under the SIL Open Font License.
+- Buddy, present and room art: drawn for this project (inline SVG in `art.js`).
 - Word lists and exercise ideas follow Airi's school books, for personal practice. No book pages are included.
